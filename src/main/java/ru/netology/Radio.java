@@ -11,6 +11,7 @@ public class Radio {
     private boolean on;
 
 
+
     public Radio(String name, int maxRadioStation, int minRadioStation, int currentRadioStation,
                  int maxVolume, int minVolume, int currentVolume, boolean on) {
         this.name = name;
@@ -23,8 +24,6 @@ public class Radio {
         this.on = on;
     }
 
-    public Radio() {
-    }
 
     public String getName() {
         return name;

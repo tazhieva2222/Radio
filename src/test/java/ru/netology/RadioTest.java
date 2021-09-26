@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
-    Radio radio = new Radio();
+    Radio radio = new Radio("User", 10,0, 0, 100, 0, 50, true);
 
 
 
@@ -20,11 +20,18 @@ class RadioTest {
     @Test
     public void validateChangeFields() {
         assertEquals(0, radio.getCurrentRadioStation());
-        radio.setCurrentRadioStation(4);
-        assertEquals(4, radio.getCurrentRadioStation());
+        radio.setCurrentRadioStation(5);
+        assertEquals(5, radio.getCurrentRadioStation());
     }
 
- 
+
+
+ @Test
+ public void On(){
+        radio.setOn(true);
+        radio.isOn();
+     assertEquals(true, radio.isOn());
+ }
     @Test
     public void atMaxRadioStationPressNextStation() {
         radio.setMaxRadioStation(10);
