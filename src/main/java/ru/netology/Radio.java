@@ -1,38 +1,24 @@
 package ru.netology;
 
+
 public class Radio {
-    private String name;
-    private int numberRadioStation = 9;
-    private int maxRadioStation = 10;
-    private int minRadioStation = 0;
-    private int currentRadioStation;
+
     private int maxVolume = 100;
     private int minVolume = 0;
     private int currentVolume;
-    private boolean on;
+    private int maxRadioStation = 10;
+    private int minRadioStation = 0;
+    private int currentRadioStation;
+    private int NumberOfRadioStation = 9;
+
+    public Radio(int numberOfRadioStation) {
+        NumberOfRadioStation = numberOfRadioStation;
+    }
 
     public Radio() {
     }
 
-    public Radio(int numberRadioStation) {
-        this.numberRadioStation = numberRadioStation;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getNumberRadioStation() {
-        return numberRadioStation;
-    }
-
-    public void setNumberRadioStation(int numberRadioStation) {
-        this.numberRadioStation = numberRadioStation;
-    }
     public int getMaxVolume() {
         return maxVolume;
     }
@@ -52,16 +38,6 @@ public class Radio {
     public int getCurrentVolume() {
         return currentVolume;
     }
-
-
-    public boolean isOn() {
-        return on;
-    }
-
-    public void setOn(boolean on) {
-        this.on = on;
-    }
-
 
     public void setCurrentVolume(int currentVolume) {
         if (currentVolume > maxVolume) {
@@ -128,5 +104,13 @@ public class Radio {
     public void pressMinusVolume() {
 
         setCurrentVolume(currentVolume - 1);
+    }
+
+    public int getNumberOfRadioStation() {
+        return NumberOfRadioStation;
+    }
+
+    public void setNumberOfRadioStation(int numberOfRadioStation) {
+        NumberOfRadioStation = numberOfRadioStation;
     }
 }
