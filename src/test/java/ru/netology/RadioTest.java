@@ -5,45 +5,23 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
-   Radio radio = new Radio();
+    Radio radio = new Radio();
     Radio radio2 = new Radio(9);
 
     @Test
     public void setRadioStationNumber() {
-        radio.setCurrentRadioStation(0);
-        radio2.setNumberRadioStation(4);
-        assertEquals(4, radio2.getNumberRadioStation());
-    }
-
-    @Test
-    public void createRadio() {
-        String expected = "User";
-        radio.getName();
-        radio.setName(expected);
-        assertEquals(expected, radio.getName());
+        assertEquals(9, radio2.getNumberOfRadioStation());
+        radio2.setNumberOfRadioStation(5);
+        assertEquals(5, radio2.getNumberOfRadioStation());
     }
 
     @Test
     public void validateChangeFields() {
         assertEquals(0, radio.getCurrentRadioStation());
-        radio.setCurrentRadioStation(5);
-        assertEquals(5, radio.getCurrentRadioStation());
+        radio.setCurrentRadioStation(4);
+        assertEquals(4, radio.getCurrentRadioStation());
     }
 
-
-    @Test
-    public void setCurrentRadioStationMoreThanMaxRadioStation() {
-        radio.setCurrentRadioStation(11);
-        radio.getMaxRadioStation();
-        assertEquals(10, radio.getMaxRadioStation());
-    }
-
-    @Test
-    public void On() {
-        radio.setOn(true);
-        radio.isOn();
-        assertEquals(true, radio.isOn());
-    }
 
     @Test
     public void atMaxRadioStationPressNextStation() {
@@ -61,9 +39,9 @@ class RadioTest {
 
     @Test
     public void changeOverLastRadioStation() {
-        radio.setCurrentRadioStation(10);
+        radio.setCurrentRadioStation(9);
         radio.pressNextStation();
-        assertEquals(0, radio.getCurrentRadioStation());
+        assertEquals(10, radio.getCurrentRadioStation());
     }
 
     @Test
@@ -82,6 +60,20 @@ class RadioTest {
     }
 
     @Test
+    public void nextRadioStationWhenCurrentOverMax() {
+        radio.setCurrentRadioStation(11);
+        radio.pressNextStation();
+        assertEquals(0, radio.getMinRadioStation());
+    }
+
+    @Test
+    public void nextRadioStationWhenCurrentEqualsMax() {
+        radio.setCurrentRadioStation(10);
+        radio.pressNextStation();
+        assertEquals(0, radio.getCurrentRadioStation());
+    }
+
+    @Test
     public void prevRadioStation() {
         radio.setCurrentRadioStation(6);
         radio.pressPrevStation();
@@ -90,7 +82,7 @@ class RadioTest {
 
     @Test
     public void OverInitialRadioStation() {
-        radio.setCurrentRadioStation(-11);
+        radio.setCurrentRadioStation(11);
         radio.getMaxRadioStation();
         assertEquals(0, radio.getCurrentRadioStation());
     }
