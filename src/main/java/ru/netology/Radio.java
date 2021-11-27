@@ -9,10 +9,10 @@ public class Radio {
     private int maxRadioStation = 10;
     private int minRadioStation = 0;
     private int currentRadioStation;
-    private int NumberOfRadioStation = 9;
+    private int numberOfRadioStation = 9;
 
     public Radio(int numberOfRadioStation) {
-        NumberOfRadioStation = numberOfRadioStation;
+        numberOfRadioStation = numberOfRadioStation;
     }
 
     public Radio() {
